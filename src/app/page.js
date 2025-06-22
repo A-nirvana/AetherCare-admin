@@ -1,8 +1,8 @@
-import Sidebar from "../app/components/Sidebar";
+import Sidebar from "../components/Sidebar";
 import Header from "../app/DashBoard/Header";
-import HealthScore from "../app/components/HealthScore";
-import ClimateCard from "../app/components/Climate Card";
-import UserRiskCard from "../app/components/PatientCard";
+import HealthScore from "../components/Dashboard/HealthScore";
+import ClimateCard from "../components/Dashboard/Climate Card";
+import UserRiskCard from "../components/Dashboard/PatientCard";
 
 export default function Home() {
   return (
