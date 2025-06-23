@@ -1,13 +1,11 @@
-import Sidebar from "../components/Sidebar";
-import Header from "../app/DashBoard/Header";
-import HealthScore from "../components/Dashboard/HealthScore";
-import ClimateCard from "../components/Dashboard/Climate Card";
-import UserRiskCard from "../components/Dashboard/PatientCard";
+import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Dashboard/Header";
+import HealthScore from "@/components/Dashboard/HealthScore";
+import ClimateCard from "@/components/Dashboard/Climate Card";
+import UserRiskCard from "@/components/Dashboard/PatientCard";
 
 export default function Home() {
   return (
-    <div className="flex">
-      <Sidebar />
       <div className="flex-1 p-6 bg-gray-50 min-h-screen">
         <Header />
         <div className="flex flex-row gap-6 max-w-3xl">
@@ -17,11 +15,9 @@ export default function Home() {
             <UserRiskCard/>
             <UserRiskCard/>
             </div>
-
           </div>
             <ClimateCard />
           </div>
-      </div>
       </div>
   );
 }

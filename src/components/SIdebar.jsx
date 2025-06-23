@@ -1,26 +1,28 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { Montserrat } from 'next/font/google';
-import clsx from 'clsx';
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Montserrat } from "next/font/google";
+import clsx from "clsx";
+import { useUser } from "@/context/UserContext";
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '900'] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "900"] });
 
 const navItems = [
-  { name: 'Dashboard', href: '/' },
-  { name: 'Statistics', href: 'src/app/pages/statistics.jsx' },
-  { name: 'Health Tips', href: '/health' },
-  { name: 'Contact Us', href: '/contact' },
-  { name: 'Logout', href: '/login' },
+  { name: "Dashboard", href: "/" },
+  { name: "Health Tips", href: "/health" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const userData = useUser();
 
   return (
-    <div className="bg-[#e12e2c] text-white w-60 min-h-screen p-6 rounded-tr-3xl rounded-3xl">
-      <h2 className={`${montserrat.className} text-2xl mb-20 mt-5 font-[600]`}>AetherCare HelpLine</h2>
+    <div className="bg-[#e12e2c] text-white w-60 min-h-screen p-6 rounded-tr-3xl rounded-br-3xl">
+      <h2 className={`${montserrat.className} text-2xl mb-20 mt-5 font-[600]`}>
+        AetherCare HelpLine
+      </h2>
       <ul className="space-y-5 font-medium">
         {navItems.map(({ name, href }) => {
           const isActive = pathname === href;
@@ -30,10 +32,12 @@ const Sidebar = () => {
                 href={href}
                 className={clsx(
                   montserrat.className,
-                  'text-[1.1rem] font-[500] px-4 py-2 rounded-xl block transition-all duration-300',
+                  "text-[1.1rem] font-[500] px-4 py-2 rounded-xl block transition-all duration-300",
                   {
-                    'bg-gray-50 text-[#e12e2c] shadow-xl rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl pt-3 pb-3': isActive,
-                    'hover:bg-gray-50 hover:text-[#e12e2c] pt-3 pb-3 overflow-hidden rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl': !isActive,
+                    "bg-gray-50 text-[#e12e2c] shadow-xl rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl pt-3 pb-3":
+                      isActive,
+                    "hover:bg-gray-50 hover:text-[#e12e2c] pt-3 pb-3 overflow-hidden rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl":
+                      !isActive,
                   }
                 )}
               >
@@ -42,6 +46,18 @@ const Sidebar = () => {
             </li>
           );
         })}
+        <li>
+          <button
+            onClick={() => userData.logout()}
+            className={clsx(
+              montserrat.className,
+              "text-[1.1rem] cursor-pointer font-[500] px-4 py-2 rounded-xl block transition-all duration-300",
+              "hover:bg-gray-50 hover:text-[#e12e2c] pt-3 pb-3 overflow-hidden rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-3xl"
+            )}
+          >
+              Logout
+          </button>
+        </li>
       </ul>
     </div>
   );
