@@ -6,7 +6,7 @@ import { io, Socket } from 'socket.io-client';
 const SocketContext = createContext({
   socket: null,
   isConnected: false,
-  healthScore: 0,
+  healthScore: 61,
 });
 
 export const useSocket = () => {
