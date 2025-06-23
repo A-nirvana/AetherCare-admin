@@ -6,6 +6,7 @@ import { io, Socket } from 'socket.io-client';
 const SocketContext = createContext({
   socket: null,
   isConnected: false,
+  healthScore: 0,
 });
 
 export const useSocket = () => {
@@ -15,6 +16,7 @@ export const useSocket = () => {
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [healthScore, setHealthScore] = useState(0);
 
   // useEffect(() => {
   //   const socketInstance = io(process.env.NEXT_PUBLIC_SOCKET_URL, {
@@ -44,7 +46,7 @@ export const SocketProvider = ({ children }) => {
   //   </SocketContext.Provider>
   // );
   return (
-    <SocketContext.Provider value={{ socket: null, isConnected: false }}>
+    <SocketContext.Provider value={{ socket: null, isConnected: false, healthScore:0 }}>
       {children}
     </SocketContext.Provider>
   );
