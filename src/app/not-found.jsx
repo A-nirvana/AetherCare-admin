@@ -4,14 +4,14 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-green-50 flex flex-col items-center justify-center p-6 text-center">
+    <div className="min-h-screen bg-red-50 flex flex-col items-center justify-center p-6 text-center">
       <img
         src="https://res.cloudinary.com/dmhbmurzw/image/upload/v1750588176/ChatGPT_Image_Jun_22_2025_03_59_12_PM_m2hdsg.png"
         alt="Doctor 404 Illustration"
         className="w-[600px]"
       />
 
-      <h1 className="text-4xl font-extrabold text-green-700 mb-2">UH-OH! VITALS NOT FOUND</h1>
+      <h1 className="text-4xl font-extrabold text-red-700 mb-2">UH-OH! VITALS NOT FOUND</h1>
 
       <p className="text-gray-700 max-w-md mb-4">
         The patient record you’re looking for seems to have disappeared from our system.
@@ -19,7 +19,7 @@ export default function NotFound() {
 
       <Link
         href="/"
-        className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition"
+        className="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition"
       >
         Back to Dashboard
       </Link>

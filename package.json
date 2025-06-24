@@ -14,8 +14,11 @@
     "axios": "^1.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.17.0",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.514.0",
     "next": "15.3.3",
+    "postcss": "^8.5.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.57.0",
@@ -23,10 +26,7 @@
     "react-icons": "^5.5.0",
     "socket.io-client": "^4.8.1",
     "tailwind-merge": "^3.3.1",
-    "typewriter-effect": "^2.22.0",
-    "framer-motion": "^12.17.0",
-    "lucide-react": "^0.514.0",
-    "postcss": "^8.5.5"
+    "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

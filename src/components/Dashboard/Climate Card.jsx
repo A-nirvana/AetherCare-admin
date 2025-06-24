@@ -95,7 +95,7 @@ export default function ClimateCard() {
   };
 
   return (
-    <div className={`w-[90%] max-w-xs bg-gradient-to-br from-indigo-50 via-white to-teal-50 rounded-3xl shadow-2xl p-6 space-y-6 ${lato.className}`}>
+    <div className={`w-[90%] h-[50%] max-w-xs bg-gradient-to-br from-indigo-50 via-white to-teal-50 rounded-3xl shadow-2xl p-6 space-y-6 ${lato.className}`}>
       <div className="text-center">
         <p className={`text-lg font-bold text-gray-700 ${pacifico.className}`}>Weather Forecast</p>
         <p className="text-sm text-gray-600">

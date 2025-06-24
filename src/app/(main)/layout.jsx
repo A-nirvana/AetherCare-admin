@@ -34,7 +34,7 @@ export default function MainLayout({ children }) {
       <Sidebar />
       <SocketProvider>
         {children}
-        <AlertModal/>
+        <AlertModal className="w-40%"/>
       </SocketProvider>
     </div>
   );
