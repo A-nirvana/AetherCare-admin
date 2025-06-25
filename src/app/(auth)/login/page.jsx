@@ -18,7 +18,7 @@ export default function AuthPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userId || !password) return alert('Please fill in all fields');
-    if (isLogin) user.login({ userId, password });
+    if (isLogin) user.login({ medicId:userId, password });
     else console.log('Register:', userId, password);
     setUserId('');
     setPassword('');

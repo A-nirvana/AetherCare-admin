@@ -4,10 +4,22 @@ import { useSocket } from "@/context/SocketContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdWarningAmber } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
-const AlertModal = ({ message = "Patient at critical health level!", onClose }) => {
+const AlertModal = ({
+  message = "Patient at critical health level!",
+  onClose,
+}) => {
   const socket = useSocket();
-  const isOpen = socket.healthScore < 60;
+  useEffect(() => {
+    if(socket && socket.socket)socket.socket.on("mlResult", (data) => {
+      console.log("Socket.IO: Health data received", data);
+      socket.setHealth(data);
+      toast.success("Health data updated");
+    });
+  }, [socket]); 
+  const isOpen = socket.health.Score <30;
 
   return (
     <AnimatePresence>
@@ -34,9 +46,12 @@ const AlertModal = ({ message = "Patient at critical health level!", onClose }) 
 
             <div className="flex flex-col items-center text-center">
               <MdWarningAmber className="text-red-500 text-5xl mb-4 animate-pulse" />
-              <h2 className="text-xl font-bold text-red-700 mb-2">Critical Alert</h2>
+              <h2 className="text-xl font-bold text-red-700 mb-2">
+                Critical Alert
+              </h2>
               <p className="text-sm text-gray-800 mb-6 leading-relaxed">
-                {message || "A patient’s vitals indicate a critical condition. Immediate attention required."}
+                {message ||
+                  "A patient’s vitals indicate a critical condition. Immediate attention required."}
               </p>
               <button
                 onClick={onClose}

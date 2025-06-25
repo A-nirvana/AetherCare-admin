@@ -14,10 +14,6 @@ export default function Home() {
             <HealthScore className="w-180"/>
             <div className="grid grid-cols-2 gap-4">
             <UserRiskCard className="w-full max-w-[450px] p-6" />
-              <UserRiskCard />
-              <UserRiskCard />
-              <UserRiskCard />
-              <UserRiskCard/>
             </div>
 
           </div>

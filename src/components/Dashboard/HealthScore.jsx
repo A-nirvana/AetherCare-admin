@@ -25,7 +25,7 @@ const HealthScore = () => {
           Patients Saved
         </h2>
         <p className={`${inter.className} text-sm text-gray-600 mt-2 font-medium`}>
-          Based on your previoud data, your score is <strong className="text-gray-900 font-semibold">78</strong> and considered <span className="text-green-600 font-semibold">Good</span>.
+          Based on your previous data, your number of patients saved is <strong className="text-gray-900 font-semibold">78</strong> and you're doing <span className="text-green-600 font-semibold">Great</span> work. Keep it up.
         </p>
         <Link
           href="/statistic"
