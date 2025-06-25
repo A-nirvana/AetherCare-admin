@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Toaster } from "react-hot-toast";
 import Sidebar from "@/components/Sidebar";
 import { SocketProvider } from "@/context/SocketContext";
 import { useUser } from "@/context/UserContext";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import FullPageLoader from "@/components/FullPageLoader";
 import AlertModal from "@/components/Alert";
-import { Toaster } from "react-hot-toast";
 
 export default function MainLayout({ children }) {
   const router = useRouter();
