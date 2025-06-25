@@ -1,12 +1,15 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { io, Socket } from 'socket.io-client';
+import toast from 'react-hot-toast';
+import { io} from 'socket.io-client';
 
 const SocketContext = createContext({
   socket: null,
   isConnected: false,
-  healthScore: 61,
+  health:{},
+  data:{},
+  setHealth: () => {},
 });
 
 export const useSocket = () => {
@@ -16,37 +19,33 @@ export const useSocket = () => {
 export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
-  const [healthScore, setHealthScore] = useState(0);
+  const [health, setHealth] = useState({});
+  const [data, setData] = useState({})
 
-  // useEffect(() => {
-  //   const socketInstance = io(process.env.NEXT_PUBLIC_SOCKET_URL, {
-  //   });
+  useEffect(() => {
+    const socketInstance = io(process.env.NEXT_PUBLIC_SOCKET_URL, {
+    });
 
-  //   socketInstance.on('connect', () => {
-  //     console.log('Socket.IO: Connected');
-  //     setIsConnected(true);
-  //   });
+    socketInstance.on('connect', () => {
+      console.log('Socket.IO: Connected');
+      setIsConnected(true);
+    });
 
-  //   socketInstance.on('disconnect', () => {
-  //     console.log('Socket.IO: Disconnected');
-  //     setIsConnected(false);
-  //   });
+    socketInstance.on('disconnect', () => {
+      console.log('Socket.IO: Disconnected');
+      setIsConnected(false);
+    });
 
-  //   setSocket(socketInstance);
+    setSocket(socketInstance);
 
-  //   return () => {
-  //     console.log('Socket.IO: Disconnecting');
-  //     socketInstance.disconnect();
-  //   };
-  // }, []);
+    return () => {
+      console.log('Socket.IO: Disconnecting');
+      socketInstance.disconnect();
+    };
+  }, []);
 
-  // return (
-  //   <SocketContext.Provider value={{ socket, isConnected }}>
-  //     {children}
-  //   </SocketContext.Provider>
-  // );
   return (
-    <SocketContext.Provider value={{ socket: null, isConnected: false, healthScore:0 }}>
+    <SocketContext.Provider value={{ socket, isConnected, health,setHealth, data, setData}}>
       {children}
     </SocketContext.Provider>
   );
