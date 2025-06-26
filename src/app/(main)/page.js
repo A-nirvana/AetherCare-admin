@@ -1,4 +1,3 @@
-import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Dashboard/Header";
 import HealthScore from "@/components/Dashboard/HealthScore";
 import ClimateCard from "@/components/Dashboard/Climate Card";

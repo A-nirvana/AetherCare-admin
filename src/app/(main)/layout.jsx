@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Toaster } from "react-hot-toast";
-import Sidebar from "@/components/Sidebar";
 import { SocketProvider } from "@/context/SocketContext";
 import { useUser } from "@/context/UserContext";
 import FullPageLoader from "@/components/FullPageLoader";
 import AlertModal from "@/components/Alert";
+import Sidebar from "@/components/Sidebar";
 
 export default function MainLayout({ children }) {
   const router = useRouter();
